@@ -5,15 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.firm.MainView.Companion.TAG
-import com.example.firm.R
+import androidx.navigation.fragment.navArgs
 import com.example.firm.databinding.FragmentShowNoteBinding
-import com.example.firm.model.SingleNoteData
-import com.example.firm.util.showToast
 
 class ShowNoteFragment : Fragment() {
     private lateinit var binding: FragmentShowNoteBinding
-    private lateinit var note: SingleNoteData
+    private val args by navArgs<ShowNoteFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,8 +26,10 @@ class ShowNoteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        note = requireArguments().getParcelable(TAG)!!
 
-        binding.textTitle.text = note.title
+        binding.textTitle.text = args.ntoe.title
+
+
+
     }
 }

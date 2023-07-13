@@ -55,5 +55,5 @@ class MainRecyclerAdapter(
 
 interface RecyclerCallBack<T> {
     fun onClick(note: T)
-    fun onLongClick(singleNote: T)
+    fun onLongClick(note: T)
 }

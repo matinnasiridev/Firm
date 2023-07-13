@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
-import com.example.firm.MainView.Companion.TAG
 import com.example.firm.R
 import com.example.firm.databinding.FragmentHomeBinding
 import com.example.firm.model.Repository
@@ -59,20 +58,18 @@ class HomeFragment : Fragment(), RecyclerCallBack<SingleNoteData> {
     }
 
     override fun onClick(note: SingleNoteData) {
-        val bundle = Bundle()
-        bundle.putParcelable(TAG, note)
         findNavController().navigate(
-            R.id.action_homeFragment_to_showNoteFragment,
-            bundle
+            HomeFragmentDirections.actionHomeFragmentToShowNoteFragment(
+                note
+            )
         )
     }
 
-    override fun onLongClick(singleNote: SingleNoteData) {
-        val bundle = Bundle()
-        bundle.putParcelable(TAG, singleNote)
+    override fun onLongClick(note: SingleNoteData) {
         findNavController().navigate(
-            R.id.action_homeFragment_to_dialogDeleteItem,
-            bundle
+            HomeFragmentDirections.actionHomeFragmentToDialogDeleteItem(
+                note
+            )
         )
     }
 

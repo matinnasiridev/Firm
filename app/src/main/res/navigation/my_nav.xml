@@ -62,7 +62,11 @@
         android:id="@+id/showNoteFragment"
         android:name="com.example.firm.showNote.ShowNoteFragment"
         android:label="fragment_show_note"
-        tools:layout="@layout/fragment_show_note" />
+        tools:layout="@layout/fragment_show_note" >
+        <argument
+            android:name="ntoe"
+            app:argType="com.example.firm.model.SingleNoteData" />
+    </fragment>
     <dialog
         android:id="@+id/dialogDeleteItem"
         android:name="com.example.firm.homeView.DialogDeleteItem"
@@ -71,5 +75,8 @@
         <action
             android:id="@+id/action_dialogDeleteItem_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <argument
+            android:name="note"
+            app:argType="com.example.firm.model.SingleNoteData" />
     </dialog>
 </navigation>
