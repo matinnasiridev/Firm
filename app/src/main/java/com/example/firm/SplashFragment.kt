@@ -24,7 +24,7 @@ class SplashFragment : Fragment() {
             } else {
                 findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
             }
-        }, 20)
+        }, 2500)
 
         return inflater.inflate(R.layout.fragment_splash, container, false)
     }
