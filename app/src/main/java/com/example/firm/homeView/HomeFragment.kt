@@ -10,12 +10,15 @@ import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.example.firm.R
 import com.example.firm.databinding.FragmentHomeBinding
+import com.example.firm.model.EventBounds
 import com.example.firm.model.Repository
 import com.example.firm.model.SingleNoteData
+import com.example.firm.util.FragmentEvent
 import com.example.firm.util.setAdapter
+import com.example.firm.util.showToast
 
 
-class HomeFragment : Fragment(), RecyclerCallBack<SingleNoteData> {
+class HomeFragment : Fragment(), RecyclerCallBack<SingleNoteData>, FragmentEvent {
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
@@ -27,9 +30,6 @@ class HomeFragment : Fragment(), RecyclerCallBack<SingleNoteData> {
             container,
             false
         )
-        binding.action.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_addNoteFragment)
-        }
         return binding.root
 
     }
@@ -42,6 +42,10 @@ class HomeFragment : Fragment(), RecyclerCallBack<SingleNoteData> {
                 Repository().createFakeData(),
                 this
             )
+        }
+
+        binding.action.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_addNoteFragment)
         }
 
         val toolBar = binding.toolBar
@@ -57,6 +61,10 @@ class HomeFragment : Fragment(), RecyclerCallBack<SingleNoteData> {
         }
     }
 
+    override fun onRefresh() {
+        requireActivity().showToast("onRefresh()")
+    }
+
     override fun onClick(note: SingleNoteData) {
         findNavController().navigate(
             HomeFragmentDirections.actionHomeFragmentToShowNoteFragment(
@@ -68,7 +76,7 @@ class HomeFragment : Fragment(), RecyclerCallBack<SingleNoteData> {
     override fun onLongClick(note: SingleNoteData) {
         findNavController().navigate(
             HomeFragmentDirections.actionHomeFragmentToDialogDeleteItem(
-                note
+                note, EventBounds { this }
             )
         )
     }

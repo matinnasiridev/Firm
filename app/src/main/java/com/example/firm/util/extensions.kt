@@ -25,3 +25,6 @@ fun <T : RecyclerView.ViewHolder> RecyclerView.setAdapter(
     this.layoutManager = LinearLayoutManager(this.context)
 }
 
+interface FragmentEvent {
+    fun onRefresh()
+}

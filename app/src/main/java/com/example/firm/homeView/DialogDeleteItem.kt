@@ -28,12 +28,13 @@ class DialogDeleteItem : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.noteTitle.text = args.note.title
+        val str: (s: String) -> String = { "'$it'" }
+        binding.noteTitle.text = str(args.note.title)
         binding.dismis.setOnClickListener { dismiss() }
         binding.action.setOnClickListener {
-            // TODO Remove The note From Room And Send Event To HomeFrg
+            // TODO Remove The note From Room
 
-
+            args.event.getEvent().onRefresh()
             dismiss()
         }
     }

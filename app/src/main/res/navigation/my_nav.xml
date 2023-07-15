@@ -78,5 +78,8 @@
         <argument
             android:name="note"
             app:argType="com.example.firm.model.SingleNoteData" />
+        <argument
+            android:name="event"
+            app:argType="com.example.firm.model.EventBounds" />
     </dialog>
 </navigation>
