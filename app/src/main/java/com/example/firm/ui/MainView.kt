@@ -1,9 +1,9 @@
-package com.example.firm
+package com.example.firm.ui
 
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.firm.util.showToast
+import com.example.firm.R
 
 
 class MainView : AppCompatActivity() {
@@ -12,9 +12,5 @@ class MainView : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-    }
-
-    companion object {
-        const val TAG = "TEstCru"
     }
 }

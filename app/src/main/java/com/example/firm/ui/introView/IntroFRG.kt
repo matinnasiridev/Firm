@@ -1,4 +1,4 @@
-package com.example.firm.introView
+package com.example.firm.ui.introView
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,12 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.example.firm.R
-import com.example.firm.introView.screens.FirsScreen
-import com.example.firm.introView.screens.SecondScreen
-import com.example.firm.introView.screens.ThirdScreen
-import com.example.firm.introView.screens.WelcomeScreen
+import com.example.firm.adapter.ViewPagerAdapter
+import com.example.firm.ui.introView.screens.FirsScreen
+import com.example.firm.ui.introView.screens.SecondScreen
+import com.example.firm.ui.introView.screens.ThirdScreen
+import com.example.firm.ui.introView.screens.WelcomeScreen
 
-class ViewPagerFragment : Fragment() {
+class IntroFRG : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

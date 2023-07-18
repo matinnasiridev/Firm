@@ -1,4 +1,6 @@
-package com.example.firm.model
+package com.example.firm.repository
+
+import com.example.firm.model.SingleNoteData
 
 class Repository {
 

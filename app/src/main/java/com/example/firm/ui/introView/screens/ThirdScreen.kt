@@ -1,4 +1,4 @@
-package com.example.firm.introView.screens
+package com.example.firm.ui.introView.screens
 
 import android.content.Context
 import android.os.Bundle

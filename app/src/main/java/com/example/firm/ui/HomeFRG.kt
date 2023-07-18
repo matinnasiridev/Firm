@@ -1,4 +1,4 @@
-package com.example.firm.homeView
+package com.example.firm.ui
 
 
 import android.os.Bundle
@@ -9,16 +9,18 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.example.firm.R
+import com.example.firm.adapter.MainRecyclerAdapter
+import com.example.firm.adapter.RecyclerCallBack
 import com.example.firm.databinding.FragmentHomeBinding
 import com.example.firm.model.EventBounds
-import com.example.firm.model.Repository
+import com.example.firm.repository.Repository
 import com.example.firm.model.SingleNoteData
 import com.example.firm.util.FragmentEvent
 import com.example.firm.util.setAdapter
 import com.example.firm.util.showToast
 
 
-class HomeFragment : Fragment(), RecyclerCallBack<SingleNoteData>, FragmentEvent {
+class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData>, FragmentEvent {
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
@@ -67,7 +69,7 @@ class HomeFragment : Fragment(), RecyclerCallBack<SingleNoteData>, FragmentEvent
 
     override fun onClick(note: SingleNoteData) {
         findNavController().navigate(
-            HomeFragmentDirections.actionHomeFragmentToShowNoteFragment(
+            HomeFRGDirections.actionHomeFragmentToShowNoteFragment(
                 note
             )
         )
@@ -75,7 +77,7 @@ class HomeFragment : Fragment(), RecyclerCallBack<SingleNoteData>, FragmentEvent
 
     override fun onLongClick(note: SingleNoteData) {
         findNavController().navigate(
-            HomeFragmentDirections.actionHomeFragmentToDialogDeleteItem(
+            HomeFRGDirections.actionHomeFragmentToDialogDeleteItem(
                 note, EventBounds { this }
             )
         )

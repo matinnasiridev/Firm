@@ -1,4 +1,4 @@
-package com.example.firm
+package com.example.firm.ui
 
 import android.content.Context
 import android.os.Bundle
@@ -9,9 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.firm.util.showToast
+import com.example.firm.R
 
-class SplashFragment : Fragment() {
+class SplashScreen : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

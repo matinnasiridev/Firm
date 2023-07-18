@@ -1,4 +1,4 @@
-package com.example.firm.showNote
+package com.example.firm.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.example.firm.databinding.FragmentShowNoteBinding
 
-class ShowNoteFragment : Fragment() {
+class ShowNote : Fragment() {
     private lateinit var binding: FragmentShowNoteBinding
-    private val args by navArgs<ShowNoteFragmentArgs>()
+    private val args by navArgs<ShowNoteArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

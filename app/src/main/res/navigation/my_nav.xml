@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.firm.SplashFragment"
+        android:name="com.example.firm.ui.SplashScreen"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash">
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
-        android:name="com.example.firm.introView.ViewPagerFragment"
+        android:name="com.example.firm.ui.introView.IntroFRG"
         android:label="fragment_view_pager"
         tools:layout="@layout/fragment_view_pager">
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.firm.homeView.HomeFragment"
+        android:name="com.example.firm.ui.HomeFRG"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/addNoteFragment"
-        android:name="com.example.firm.addNoteView.AddNoteFragment"
+        android:name="com.example.firm.ui.AddNote"
         android:label="fragment_add_note"
         tools:layout="@layout/fragment_add_note">
         <action
@@ -60,7 +60,7 @@
     </fragment>
     <fragment
         android:id="@+id/showNoteFragment"
-        android:name="com.example.firm.showNote.ShowNoteFragment"
+        android:name="com.example.firm.ui.ShowNote"
         android:label="fragment_show_note"
         tools:layout="@layout/fragment_show_note" >
         <argument
@@ -69,7 +69,7 @@
     </fragment>
     <dialog
         android:id="@+id/dialogDeleteItem"
-        android:name="com.example.firm.homeView.DialogDeleteItem"
+        android:name="com.example.firm.ui.DeleteItem"
         android:label="fragment_dialog_delete_item"
         tools:layout="@layout/fragment_dialog_delete_item">
         <action

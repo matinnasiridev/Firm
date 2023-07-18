@@ -1,4 +1,4 @@
-package com.example.firm.homeView
+package com.example.firm.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,9 +9,9 @@ import com.example.firm.databinding.FragmentDialogDeleteItemBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
-class DialogDeleteItem : BottomSheetDialogFragment() {
+class DeleteItem : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentDialogDeleteItemBinding
-    private val args by navArgs<DialogDeleteItemArgs>()
+    private val args by navArgs<DeleteItemArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_pink"
-    tools:context=".introView.screens.SecondScreen">
+    tools:context=".ui.introView.screens.SecondScreen">
 
     <include
         android:id="@+id/content"

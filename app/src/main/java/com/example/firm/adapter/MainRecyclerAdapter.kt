@@ -1,4 +1,4 @@
-package com.example.firm.homeView
+package com.example.firm.adapter
 
 import android.view.LayoutInflater
 import android.view.View

@@ -1,4 +1,4 @@
-package com.example.firm.introView.screens
+package com.example.firm.ui.introView.screens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

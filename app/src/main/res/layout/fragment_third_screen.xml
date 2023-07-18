@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:background="@color/gray"
     android:layout_height="match_parent"
-    tools:context=".introView.screens.ThirdScreen">
+    tools:context=".ui.introView.screens.ThirdScreen">
     <include
         android:id="@+id/content"
         layout="@layout/module_screen_themp" />

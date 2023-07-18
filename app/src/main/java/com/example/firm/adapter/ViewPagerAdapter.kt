@@ -1,4 +1,4 @@
-package com.example.firm.introView
+package com.example.firm.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

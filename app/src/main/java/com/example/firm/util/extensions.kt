@@ -2,7 +2,6 @@ package com.example.firm.util
 
 import android.content.Context
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -25,6 +24,3 @@ fun <T : RecyclerView.ViewHolder> RecyclerView.setAdapter(
     this.layoutManager = LinearLayoutManager(this.context)
 }
 
-interface FragmentEvent {
-    fun onRefresh()
-}
