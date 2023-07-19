@@ -3,9 +3,7 @@ package com.example.firm.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.firm.ImgLoader
 import com.example.firm.R
-import org.koin.android.ext.android.inject
 
 
 class MainView : AppCompatActivity() {

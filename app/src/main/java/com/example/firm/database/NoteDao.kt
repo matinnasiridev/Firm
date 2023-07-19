@@ -1,25 +1,22 @@
 package com.example.firm.database
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Update
 import com.example.firm.model.SingleNoteData
 
 @Dao
 interface NoteDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertNote(note: SingleNoteData)
 
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertNotes(listNotes: List<SingleNoteData>)
-
-
-    @Update
-    fun updateNote(note: SingleNoteData)
 
 
     @Delete
@@ -27,6 +24,6 @@ interface NoteDao {
 
 
     @Query("SELECT * FROM note_table")
-    fun getAllNotes(): ArrayList<SingleNoteData>? = null
+    fun getAllNotes(): List<SingleNoteData>
 
 }

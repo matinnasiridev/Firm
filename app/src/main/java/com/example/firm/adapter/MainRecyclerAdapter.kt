@@ -3,6 +3,7 @@ package com.example.firm.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firm.databinding.ItemSmallNoteBinding
 import com.example.firm.model.SingleNoteData
@@ -44,12 +45,10 @@ class MainRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-
         holder.bind(listData[position])
     }
 
     override fun getItemCount(): Int = listData.size
-
 }
 
 

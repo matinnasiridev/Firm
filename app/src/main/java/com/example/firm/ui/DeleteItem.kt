@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.example.firm.databinding.FragmentDialogDeleteItemBinding
+import com.example.firm.viewModel.HomeViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import org.koin.android.ext.android.inject
 
 
 class DeleteItem : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentDialogDeleteItemBinding
     private val args by navArgs<DeleteItemArgs>()
+    private val viewM: HomeViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,11 +32,12 @@ class DeleteItem : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val str: (s: String) -> String = { "'$it'" }
-        binding.noteTitle.text = str(args.note.title)
+        binding.noteTitle.text = str(args.note.title!!)
         binding.dismis.setOnClickListener { dismiss() }
         binding.action.setOnClickListener {
             // TODO Remove The note From Room
 
+            viewM.deleteItem(args.note)
             args.event.getEvent().onRefresh()
             dismiss()
         }

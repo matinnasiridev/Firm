@@ -2,6 +2,7 @@ package com.example.firm.ui
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,13 +16,17 @@ import com.example.firm.databinding.FragmentHomeBinding
 import com.example.firm.model.EventBounds
 import com.example.firm.repository.Repository
 import com.example.firm.model.SingleNoteData
+import com.example.firm.util.Constants.TAG
 import com.example.firm.util.FragmentEvent
 import com.example.firm.util.setAdapter
 import com.example.firm.util.showToast
+import com.example.firm.viewModel.HomeViewModel
+import org.koin.android.ext.android.inject
 
 
 class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData>, FragmentEvent {
     private lateinit var binding: FragmentHomeBinding
+    private val viewM: HomeViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,17 +44,18 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData>, FragmentEvent {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.recyclerMain.setAdapter {
-            MainRecyclerAdapter(
-                Repository().createFakeData(),
-                this
-            )
-        }
+
+        showRecycler()
+
+        searchNav()
 
         binding.action.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addNoteFragment)
         }
 
+    }
+
+    private fun searchNav() {
         val toolBar = binding.toolBar
         toolBar.btnSearch.setOnClickListener {
             toolBar.btnSearch.isVisible = false
@@ -63,8 +69,22 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData>, FragmentEvent {
         }
     }
 
+    private fun showRecycler() {
+        binding.recyclerMain.setAdapter {
+            MainRecyclerAdapter(
+                viewM.getList(),
+                this
+            )
+        }
+    }
+
     override fun onRefresh() {
-        requireActivity().showToast("onRefresh()")
+        showRecycler()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showRecycler()
     }
 
     override fun onClick(note: SingleNoteData) {

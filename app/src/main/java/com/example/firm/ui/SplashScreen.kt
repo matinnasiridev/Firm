@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.firm.R
+import com.example.firm.util.Constants.SplashTime
 
 class SplashScreen : Fragment() {
 
@@ -24,7 +25,7 @@ class SplashScreen : Fragment() {
             } else {
                 findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
             }
-        }, 2500)
+        }, SplashTime)
 
         return inflater.inflate(R.layout.fragment_splash, container, false)
     }

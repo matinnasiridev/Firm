@@ -1,11 +1,12 @@
 package com.example.firm.repository
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.firm.model.SingleNoteData
 
-class Repository {
+object Repository {
 
     fun createFakeData(): List<SingleNoteData> {
-
         return listOf(
             SingleNoteData(title = "hellowDady1", main = "cossher", createDate = "now!"),
             SingleNoteData(title = "hellowDady2", main = "cossher", createDate = "now!"),
@@ -19,7 +20,5 @@ class Repository {
             SingleNoteData(title = "hellowDady10", main = "cossher", createDate = "now!"),
             SingleNoteData(title = "hellowDady11", main = "cossher", createDate = "now!")
         )
-
-
     }
 }
