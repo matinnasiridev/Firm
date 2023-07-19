@@ -18,7 +18,6 @@ object DbModule {
 
         single { provideEntity() }
 
-        viewModel { HomeViewModel(get()) }
     }
 
 

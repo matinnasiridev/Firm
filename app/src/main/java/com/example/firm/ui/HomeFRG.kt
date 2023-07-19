@@ -2,7 +2,6 @@ package com.example.firm.ui
 
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,12 +13,9 @@ import com.example.firm.adapter.MainRecyclerAdapter
 import com.example.firm.adapter.RecyclerCallBack
 import com.example.firm.databinding.FragmentHomeBinding
 import com.example.firm.model.EventBounds
-import com.example.firm.repository.Repository
 import com.example.firm.model.SingleNoteData
-import com.example.firm.util.Constants.TAG
 import com.example.firm.util.FragmentEvent
 import com.example.firm.util.setAdapter
-import com.example.firm.util.showToast
 import com.example.firm.viewModel.HomeViewModel
 import org.koin.android.ext.android.inject
 

@@ -12,7 +12,5 @@ class HomeViewModel(
 
     fun insertNote(note: SingleNoteData) = noteDao.insertNote(note)
 
-    fun insertNote(list: List<SingleNoteData>) = noteDao.insertNotes(list)
-
     fun deleteItem(note: SingleNoteData) = noteDao.deleteNote(note)
 }
