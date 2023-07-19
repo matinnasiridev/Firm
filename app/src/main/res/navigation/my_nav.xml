@@ -64,7 +64,7 @@
         android:label="fragment_show_note"
         tools:layout="@layout/fragment_show_note" >
         <argument
-            android:name="ntoe"
+            android:name="note"
             app:argType="com.example.firm.model.SingleNoteData" />
     </fragment>
     <dialog
@@ -78,8 +78,5 @@
         <argument
             android:name="note"
             app:argType="com.example.firm.model.SingleNoteData" />
-        <argument
-            android:name="event"
-            app:argType="com.example.firm.model.EventBounds" />
     </dialog>
 </navigation>

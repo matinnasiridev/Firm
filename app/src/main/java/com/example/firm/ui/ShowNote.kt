@@ -27,7 +27,7 @@ class ShowNote : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.textTitle.text = args.ntoe.title
+        binding.textTitle.text = args.note.title
 
 
 

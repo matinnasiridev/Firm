@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.firm.R
 import com.example.firm.databinding.FragmentSecondScreenBinding
+import com.example.firm.util.bindOnThempScreen
 
 
 class SecondScreen : Fragment() {
@@ -18,7 +19,11 @@ class SecondScreen : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSecondScreenBinding.inflate(LayoutInflater.from(inflater.context),container,false)
+        binding = FragmentSecondScreenBinding.inflate(
+            LayoutInflater.from(inflater.context),
+            container,
+            false
+        )
         val viewPager = activity?.findViewById<ViewPager2>(R.id.view_pager)
         binding.content.actionBtn.setOnClickListener {
             viewPager?.currentItem = 3
@@ -26,12 +31,12 @@ class SecondScreen : Fragment() {
         binding.content.skipBtn.setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_homeFragment)
         }
-        FirsScreen.bindOnThempScreen(
+        bindOnThempScreen(
             binding.content,
             R.drawable.unlimited,
             R.string.title_two,
             R.string.desc_two
         )
-return binding.root
+        return binding.root
     }
 }

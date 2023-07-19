@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".ui.HomeFRG">
 
     <androidx.core.widget.NestedScrollView
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -23,11 +24,9 @@
                 android:id="@+id/recycler_main"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="32dp"
-                tools:listitem="@layout/item_small_note" />
+                android:paddingBottom="32dp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/action"
         android:layout_width="wrap_content"
@@ -37,5 +36,6 @@
         android:layout_marginBottom="12dp"
         android:importantForAccessibility="no"
         android:src="@drawable/ic_add" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -5,4 +5,6 @@ object Constants {
     const val DatabaseName = "centerDatabase.db"
     const val TableName = "note_table"
     const val SplashTime = 50L
+    const val SplashShared = "onBoarding"
+    const val SplashValue = "Finished"
 }

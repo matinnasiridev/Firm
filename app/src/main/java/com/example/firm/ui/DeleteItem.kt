@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.example.firm.databinding.FragmentDialogDeleteItemBinding
-import com.example.firm.viewModel.HomeViewModel
+import com.example.firm.viewModel.MainViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.koin.android.ext.android.inject
 
@@ -14,7 +14,7 @@ import org.koin.android.ext.android.inject
 class DeleteItem : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentDialogDeleteItemBinding
     private val args by navArgs<DeleteItemArgs>()
-    private val viewM: HomeViewModel by inject()
+    private val viewM: MainViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,14 +32,17 @@ class DeleteItem : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val str: (s: String) -> String = { "'$it'" }
-        binding.noteTitle.text = str(args.note.title!!)
-        binding.dismis.setOnClickListener { dismiss() }
-        binding.action.setOnClickListener {
-            // TODO Remove The note From Room
+        binding.apply {
 
-            viewM.deleteItem(args.note)
-            args.event.getEvent().onRefresh()
-            dismiss()
+            noteTitle.text = str(args.note.title!!)
+
+            dismis.setOnClickListener { dismiss() }
+
+            action.setOnClickListener {
+                viewM.deleteItem(args.note)
+                dismiss()
+            }
+
         }
     }
 }

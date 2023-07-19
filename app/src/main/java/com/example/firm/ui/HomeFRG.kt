@@ -10,19 +10,18 @@ import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.example.firm.R
 import com.example.firm.adapter.MainRecyclerAdapter
-import com.example.firm.adapter.RecyclerCallBack
+import com.example.firm.util.RecyclerCallBack
 import com.example.firm.databinding.FragmentHomeBinding
-import com.example.firm.model.EventBounds
 import com.example.firm.model.SingleNoteData
-import com.example.firm.util.FragmentEvent
 import com.example.firm.util.setAdapter
-import com.example.firm.viewModel.HomeViewModel
+import com.example.firm.viewModel.MainViewModel
 import org.koin.android.ext.android.inject
 
 
-class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData>, FragmentEvent {
+class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
     private lateinit var binding: FragmentHomeBinding
-    private val viewM: HomeViewModel by inject()
+    private val viewM: MainViewModel by inject()
+    private lateinit var mAdapter: MainRecyclerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,54 +33,44 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData>, FragmentEvent {
             false
         )
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewM.getAllNotes().observe(requireActivity()) { mAdapter.refreshRecycler(it) }
 
+        mAdapter = MainRecyclerAdapter(api = this)
+
+        // Ui Handeler TODO Search Handeler!
         showRecycler()
+        searchHandeler()
+        btnAddNote()
 
-        searchNav()
+    }
 
+    private fun btnAddNote() {
         binding.action.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addNoteFragment)
         }
-
     }
 
-    private fun searchNav() {
-        val toolBar = binding.toolBar
-        toolBar.btnSearch.setOnClickListener {
-            toolBar.btnSearch.isVisible = false
-            toolBar.btnClose.isVisible = true
-            toolBar.searchData.visibility = View.VISIBLE
-        }
-        toolBar.btnClose.setOnClickListener {
-            toolBar.btnSearch.isVisible = true
-            toolBar.btnClose.isVisible = false
-            toolBar.searchData.visibility = View.INVISIBLE
-        }
-    }
-
-    private fun showRecycler() {
-        binding.recyclerMain.setAdapter {
-            MainRecyclerAdapter(
-                viewM.getList(),
-                this
-            )
+    private fun searchHandeler() {
+        binding.toolBar.apply {
+            btnSearch.setOnClickListener {
+                btnSearch.isVisible = false
+                btnClose.isVisible = true
+                searchData.visibility = View.VISIBLE
+            }
+            btnClose.setOnClickListener {
+                btnSearch.isVisible = true
+                btnClose.isVisible = false
+                searchData.visibility = View.INVISIBLE
+            }
         }
     }
 
-    override fun onRefresh() {
-        showRecycler()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        showRecycler()
-    }
+    private fun showRecycler() = binding.recyclerMain.setAdapter { mAdapter }
 
     override fun onClick(note: SingleNoteData) {
         findNavController().navigate(
@@ -94,7 +83,7 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData>, FragmentEvent {
     override fun onLongClick(note: SingleNoteData) {
         findNavController().navigate(
             HomeFRGDirections.actionHomeFragmentToDialogDeleteItem(
-                note, EventBounds { this }
+                note
             )
         )
     }

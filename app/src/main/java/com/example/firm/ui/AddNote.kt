@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.firm.databinding.FragmentAddNoteBinding
+import com.example.firm.viewModel.MainViewModel
+import org.koin.android.ext.android.inject
 
 class AddNote : Fragment() {
     private lateinit var binding: FragmentAddNoteBinding
+    private val viewM: MainViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,6 +22,10 @@ class AddNote : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // Set The Value ~> Done!
+    }
 
 }
 

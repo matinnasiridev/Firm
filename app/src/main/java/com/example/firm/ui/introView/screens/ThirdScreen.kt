@@ -7,9 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import com.example.firm.R
 import com.example.firm.databinding.FragmentThirdScreenBinding
-import com.example.firm.util.showToast
+import com.example.firm.util.Constants.SplashShared
+import com.example.firm.util.Constants.SplashValue
+import com.example.firm.util.bindOnThempScreen
 
 
 class ThirdScreen : Fragment() {
@@ -25,25 +28,24 @@ class ThirdScreen : Fragment() {
             false
         )
         binding.content.actionBtn.setOnClickListener {
-            //findNavController().navigate(R.id.action_viewPagerFragment_to_homeFragment)
-            binding.root.context.showToast("fix this he action is deactived!")
+            findNavController().navigate(R.id.action_viewPagerFragment_to_homeFragment)
             onBoardingFinish()
         }
         binding.content.skipBtn.isVisible = false
-        FirsScreen.bindOnThempScreen(
+        bindOnThempScreen(
             binding.content,
             R.drawable.custom,
             R.string.title_third,
             R.string.desc_third
         )
-        binding.content.actionBtn.text = "Finish"
+        binding.content.actionBtn.setText(R.string.finish_message)
         return binding.root
     }
 
     private fun onBoardingFinish() {
-        val shared = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+        val shared = requireActivity().getSharedPreferences(SplashShared, Context.MODE_PRIVATE)
         val editor = shared.edit()
-        editor.putBoolean("Finished", true)
+        editor.putBoolean(SplashValue, true)
         editor.apply()
     }
 }

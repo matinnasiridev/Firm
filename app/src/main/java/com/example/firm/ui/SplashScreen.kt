@@ -1,5 +1,6 @@
 package com.example.firm.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
@@ -10,8 +11,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.firm.R
+import com.example.firm.util.Constants.SplashShared
 import com.example.firm.util.Constants.SplashTime
+import com.example.firm.util.Constants.SplashValue
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreen : Fragment() {
 
     override fun onCreateView(
@@ -31,7 +35,7 @@ class SplashScreen : Fragment() {
     }
 
     private fun isOnBoardingFinished(): Boolean {
-        val shared = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
-        return shared.getBoolean("Finished", false)
+        val shared = requireActivity().getSharedPreferences(SplashShared, Context.MODE_PRIVATE)
+        return shared.getBoolean(SplashValue, false)
     }
 }

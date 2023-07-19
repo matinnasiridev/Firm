@@ -6,12 +6,11 @@ import com.example.firm.database.AppDatabase
 import com.example.firm.database.NoteDao
 import com.example.firm.model.SingleNoteData
 import com.example.firm.util.Constants.DatabaseName
-import com.example.firm.viewModel.HomeViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 object DbModule {
     val databaseModule = module {
+
         single { provideDatabase(get()) }
 
         single { provideDao(get()) }

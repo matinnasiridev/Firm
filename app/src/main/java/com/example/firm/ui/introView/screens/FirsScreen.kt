@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.firm.R
 import com.example.firm.databinding.FragmentFirsScreenBinding
-import com.example.firm.databinding.ModuleScreenThempBinding
+import com.example.firm.util.bindOnThempScreen
 
 
 class FirsScreen : Fragment() {
@@ -38,18 +38,5 @@ class FirsScreen : Fragment() {
             R.string.desc_one
         )
         return binding.root
-    }
-
-    companion object {
-        fun bindOnThempScreen(
-            root: ModuleScreenThempBinding,
-            img: Int,
-            title: Int,
-            desc: Int
-        ) {
-            root.image.setImageResource(img)
-            root.title.setText(title)
-            root.desc.setText(desc)
-        }
     }
 }

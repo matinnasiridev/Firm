@@ -24,6 +24,6 @@ interface NoteDao {
 
 
     @Query("SELECT * FROM note_table")
-    fun getAllNotes(): List<SingleNoteData>
+    fun getAllNotes(): LiveData<List<SingleNoteData>>
 
 }
