@@ -4,8 +4,10 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
-import com.example.firm.databinding.ItemSmallNoteBinding
+import com.example.firm.R
+import com.example.firm.databinding.ItemNoteBinding
 import com.example.firm.model.SingleNoteData
 import com.example.firm.util.RecyclerCallBack
 
@@ -14,13 +16,17 @@ class MainRecyclerAdapter(
     private val api: RecyclerCallBack<SingleNoteData>
 
 ) : RecyclerView.Adapter<MainRecyclerAdapter.MainViewHolder>() {
-    private lateinit var binding: ItemSmallNoteBinding
+    private lateinit var binding: ItemNoteBinding
     private val listData: ArrayList<SingleNoteData> = arrayListOf()
 
     inner class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(noteData: SingleNoteData) {
 
-            binding.titleNote.text = noteData.title
+            binding.apply {
+                txtTitle.text = noteData.title
+                txtShortDesc.text = noteData.main
+                txtTime.text = "Now!"
+            }
 
             // OnClick
             itemView.setOnClickListener {
@@ -39,7 +45,7 @@ class MainRecyclerAdapter(
         parent: ViewGroup,
         viewType: Int
     ): MainViewHolder {
-        binding = ItemSmallNoteBinding.inflate(
+        binding = ItemNoteBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -49,6 +55,12 @@ class MainRecyclerAdapter(
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         holder.bind(listData[position])
+        binding.itemRecycler.startAnimation(
+            AnimationUtils.loadAnimation(
+                holder.itemView.context,
+                R.anim.main_recycler_anim
+            )
+        )
     }
 
     override fun getItemCount(): Int = listData.size

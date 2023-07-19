@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.firm.R
 import com.example.firm.databinding.FragmentFirsScreenBinding
-import com.example.firm.util.bindOnThempScreen
+import com.example.firm.util.fillThePage
 
 
 class FirsScreen : Fragment() {
@@ -31,7 +31,7 @@ class FirsScreen : Fragment() {
         binding.content.skipBtn.setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_homeFragment)
         }
-        bindOnThempScreen(
+        fillThePage(
             binding.content,
             R.drawable.safe,
             R.string.title_one,

@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.firm.databinding.ModuleScreenThempBinding
 
 fun Context.showToast(message: String, isShortTime: Boolean = true) {
     Toast.makeText(
@@ -22,5 +23,17 @@ fun <T : RecyclerView.ViewHolder> RecyclerView.setAdapter(
 ) {
     this.adapter = adapter()
     this.layoutManager = LinearLayoutManager(this.context)
+}
+
+
+fun fillThePage(
+    root: ModuleScreenThempBinding,
+    img: Int,
+    title: Int,
+    desc: Int
+) {
+    root.image.setImageResource(img)
+    root.title.setText(title)
+    root.desc.setText(desc)
 }
 

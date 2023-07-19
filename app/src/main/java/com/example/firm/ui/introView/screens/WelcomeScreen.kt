@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.firm.R
 import com.example.firm.databinding.FragmentWelcomeBinding
-import com.example.firm.util.bindOnThempScreen
+import com.example.firm.util.fillThePage
 
 class WelcomeScreen : Fragment() {
     private lateinit var binding: FragmentWelcomeBinding
@@ -28,7 +28,7 @@ class WelcomeScreen : Fragment() {
         binding.content.skipBtn.setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_homeFragment)
         }
-        bindOnThempScreen(
+        fillThePage(
             binding.content,
             R.drawable.main_logo,
             R.string.title_welcome,

@@ -44,7 +44,6 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
 
         // Ui Handeler TODO Search Handeler!
         showRecycler()
-        searchHandeler()
         btnAddNote()
 
     }
@@ -55,20 +54,7 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
         }
     }
 
-    private fun searchHandeler() {
-        binding.toolBar.apply {
-            btnSearch.setOnClickListener {
-                btnSearch.isVisible = false
-                btnClose.isVisible = true
-                searchData.visibility = View.VISIBLE
-            }
-            btnClose.setOnClickListener {
-                btnSearch.isVisible = true
-                btnClose.isVisible = false
-                searchData.visibility = View.INVISIBLE
-            }
-        }
-    }
+
 
     private fun showRecycler() = binding.recyclerMain.setAdapter { mAdapter }
 

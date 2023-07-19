@@ -12,7 +12,7 @@ import com.example.firm.R
 import com.example.firm.databinding.FragmentThirdScreenBinding
 import com.example.firm.util.Constants.SplashShared
 import com.example.firm.util.Constants.SplashValue
-import com.example.firm.util.bindOnThempScreen
+import com.example.firm.util.fillThePage
 
 
 class ThirdScreen : Fragment() {
@@ -32,7 +32,7 @@ class ThirdScreen : Fragment() {
             onBoardingFinish()
         }
         binding.content.skipBtn.isVisible = false
-        bindOnThempScreen(
+        fillThePage(
             binding.content,
             R.drawable.custom,
             R.string.title_third,
