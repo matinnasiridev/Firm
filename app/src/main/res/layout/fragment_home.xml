@@ -72,7 +72,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="65dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/categorie_background" />
 
                     <TextView
@@ -165,7 +165,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/dsdw"
+                android:id="@+id/title_note"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"

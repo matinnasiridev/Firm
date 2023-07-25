@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.example.firm.R
 import com.example.firm.adapter.MainRecyclerAdapter
@@ -38,14 +37,22 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewM.getAllNotes().observe(requireActivity()) { mAdapter.refreshRecycler(it) }
-
         mAdapter = MainRecyclerAdapter(api = this)
 
         // Ui Handeler TODO Search Handeler!
         showRecycler()
         btnAddNote()
+        refresh()
 
+    }
+
+    private val refresh: () -> Unit = {
+        viewM.getAllNotes().observe(requireActivity()) {
+            if (it.isNotEmpty())
+                mAdapter.refreshRecycler(it)
+            else
+                viewM.fillFirst()
+        }
     }
 
     private fun btnAddNote() {
@@ -53,7 +60,6 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
             findNavController().navigate(R.id.action_homeFragment_to_addNoteFragment)
         }
     }
-
 
 
     private fun showRecycler() = binding.recyclerMain.setAdapter { mAdapter }
@@ -73,5 +79,4 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
             )
         )
     }
-
 }

@@ -42,8 +42,6 @@ class DeleteItem : BottomSheetDialogFragment() {
                 viewM.deleteItem(args.note)
                 dismiss()
             }
-
         }
     }
 }
-

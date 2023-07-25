@@ -18,9 +18,7 @@ class MainViewModel(
     fun deleteItem(note: SingleNoteData) = rps.deleteItem(note)
 
     // Test Tools
-    fun getTestData(): LiveData<List<SingleNoteData>> {
-        insertNote(rps.create())
-        return getAllNotes()
-    }
+    fun fillFirst() = insertNote(rps.create())
+
 }
 

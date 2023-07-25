@@ -20,12 +20,12 @@ class MainRecyclerAdapter(
     private val listData: ArrayList<SingleNoteData> = arrayListOf()
 
     inner class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(noteData: SingleNoteData) {
+        fun bind(noteData: SingleNoteData, position: Int) {
 
             binding.apply {
                 txtTitle.text = noteData.title
                 txtShortDesc.text = noteData.main
-                txtTime.text = "Now!"
+                txtTime.text = noteData.createDate
             }
 
             // OnClick
@@ -54,7 +54,7 @@ class MainRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        holder.bind(listData[position])
+        holder.bind(listData[position], position)
         binding.itemRecycler.startAnimation(
             AnimationUtils.loadAnimation(
                 holder.itemView.context,
@@ -68,7 +68,7 @@ class MainRecyclerAdapter(
     @SuppressLint("NotifyDataSetChanged")
     fun refreshRecycler(new: List<SingleNoteData>?) {
         listData.clear()
-        listData.addAll(new!!)
+        listData.addAll(ArrayList(new!!))
         notifyDataSetChanged()
     }
 }
