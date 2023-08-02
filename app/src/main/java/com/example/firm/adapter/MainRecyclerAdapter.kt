@@ -64,6 +64,7 @@ class MainRecyclerAdapter(
             listData.clear()
             listData.addAll(ArrayList(new))
             notifyDataSetChanged()
+
         }
     }
 }
