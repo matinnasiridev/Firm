@@ -2,7 +2,6 @@ package com.example.firm.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
@@ -19,8 +18,8 @@ class MainRecyclerAdapter(
     private lateinit var binding: ItemNoteBinding
     private val listData: ArrayList<SingleNoteData> = arrayListOf()
 
-    inner class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(noteData: SingleNoteData, position: Int) {
+    inner class MainViewHolder : RecyclerView.ViewHolder(binding.root) {
+        fun bind(noteData: SingleNoteData) {
 
             binding.apply {
                 txtTitle.text = noteData.title
@@ -50,25 +49,21 @@ class MainRecyclerAdapter(
             parent,
             false
         )
-        return MainViewHolder(binding.root)
+        return MainViewHolder()
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        holder.bind(listData[position], position)
-        binding.itemRecycler.startAnimation(
-            AnimationUtils.loadAnimation(
-                holder.itemView.context,
-                R.anim.main_recycler_anim
-            )
-        )
+        holder.bind(listData[position])
     }
 
     override fun getItemCount(): Int = listData.size
 
     @SuppressLint("NotifyDataSetChanged")
-    fun refreshRecycler(new: List<SingleNoteData>?) {
-        listData.clear()
-        listData.addAll(ArrayList(new!!))
-        notifyDataSetChanged()
+    fun refreshRecycler(new: List<SingleNoteData>) {
+        if (new != listData) {
+            listData.clear()
+            listData.addAll(ArrayList(new))
+            notifyDataSetChanged()
+        }
     }
 }
