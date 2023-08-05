@@ -9,7 +9,7 @@
         android:id="@+id/img_ctg"
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:background="@drawable/categorie_background"
+        android:background="@drawable/category_background"
         android:importantForAccessibility="no" />
 
     <TextView

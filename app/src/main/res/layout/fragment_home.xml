@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="28dp"
-                android:background="@drawable/categorie_background"
+                android:background="@drawable/category_background"
                 android:orientation="horizontal"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp">
@@ -46,11 +46,11 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tetcat"
+                android:id="@+id/title_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
-                android:text="Categores"
+                android:text="Category"
                 android:textColor="@color/green"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -60,108 +60,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="5">
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="0dp"
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:background="@drawable/categorie_background" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:gravity="center_horizontal"
-                        android:text="worck" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="65dp"
-                        android:background="@drawable/categorie_background" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:gravity="center_horizontal"
-                        android:text="worck" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="65dp"
-                        android:background="@drawable/categorie_background" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:gravity="center_horizontal"
-                        android:text="worck" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="65dp"
-                        android:background="@drawable/categorie_background" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:gravity="center_horizontal"
-                        android:text="worck" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="65dp"
-                        android:background="@drawable/categorie_background" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:gravity="center_horizontal"
-                        android:text="worck" />
-                </LinearLayout>
+                    tools:ignore="UselessLeaf" >
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rc_category"
+                        tools:itemCount="3"
+                        android:layout_height="wrap_content"/>
+                </HorizontalScrollView>
             </LinearLayout>
 
             <TextView
@@ -175,7 +85,7 @@
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_main"
+                android:id="@+id/rc_note"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

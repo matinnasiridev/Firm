@@ -3,18 +3,16 @@ package com.example.firm.adapter
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
-import com.example.firm.R
 import com.example.firm.databinding.ItemNoteBinding
 import com.example.firm.model.SingleNoteData
 import com.example.firm.util.RecyclerCallBack
 
 
-class MainRecyclerAdapter(
+class NotesAdapter(
     private val api: RecyclerCallBack<SingleNoteData>
 
-) : RecyclerView.Adapter<MainRecyclerAdapter.MainViewHolder>() {
+) : RecyclerView.Adapter<NotesAdapter.MainViewHolder>() {
     private lateinit var binding: ItemNoteBinding
     private val listData: ArrayList<SingleNoteData> = arrayListOf()
 

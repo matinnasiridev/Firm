@@ -19,10 +19,15 @@ fun Context.showToast(message: String, isShortTime: Boolean = true) {
 }
 
 fun <T : RecyclerView.ViewHolder> RecyclerView.setAdapter(
+    isHorizontal: Boolean = false,
     adapter: () -> RecyclerView.Adapter<T>
 ) {
     this.adapter = adapter()
-    this.layoutManager = LinearLayoutManager(this.context)
+    this.layoutManager = LinearLayoutManager(
+        this.context,
+        if (isHorizontal) RecyclerView.HORIZONTAL else RecyclerView.VERTICAL,
+        false
+    )
 }
 
 
