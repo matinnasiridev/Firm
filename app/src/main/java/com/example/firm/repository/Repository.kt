@@ -1,10 +1,14 @@
 package com.example.firm.repository
 
 import androidx.lifecycle.LiveData
+import com.example.firm.database.CategoryDao
 import com.example.firm.database.NoteDao
 import com.example.firm.model.SingleNoteData
 
-class Repository(private val noteDao: NoteDao) {
+class Repository(
+    private val noteDao: NoteDao,
+    private val categoryDao: CategoryDao
+) {
 
     // Local
     fun getList(): LiveData<List<SingleNoteData>> = noteDao.getAllNotes()

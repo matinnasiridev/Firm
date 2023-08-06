@@ -3,7 +3,9 @@ package com.example.firm.di
 import android.content.Context
 import androidx.room.Room
 import com.example.firm.database.AppDatabase
+import com.example.firm.database.CategoryDao
 import com.example.firm.database.NoteDao
+import com.example.firm.model.CategoryData
 import com.example.firm.model.SingleNoteData
 import com.example.firm.util.Constants.DatabaseName
 import org.koin.dsl.module
@@ -13,9 +15,13 @@ object DbModule {
 
         single { provideDatabase(get()) }
 
-        single { provideDao(get()) }
+        single { provideNoteDao(get()) }
 
-        single { provideEntity() }
+        single { provideCategoryDao(get()) }
+
+        single { provideNoteEntity() }
+
+        single { provideCategoryEntity() }
 
     }
 
@@ -29,7 +35,12 @@ object DbModule {
             .build()
     }
 
-    private fun provideDao(db: AppDatabase): NoteDao = db.noteDao
+    private fun provideNoteDao(db: AppDatabase): NoteDao = db.noteDao
 
-    private fun provideEntity(): SingleNoteData = SingleNoteData()
+
+    private fun provideCategoryDao(db: AppDatabase): CategoryDao = db.categoryDao
+
+    private fun provideNoteEntity(): SingleNoteData = SingleNoteData()
+
+    private fun provideCategoryEntity(): CategoryData = CategoryData()
 }

@@ -5,6 +5,6 @@ import org.koin.dsl.module
 
 object ToolsModule {
     val tools = module {
-        single { Repository(get()) }
+        single { Repository(get(), get()) }
     }
 }
