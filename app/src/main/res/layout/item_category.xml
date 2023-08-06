@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="75dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="8dp"
+    tools:ignore="UseCompoundDrawables">
 
     <ImageView
         android:id="@+id/img_ctg"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="56dp"
         android:background="@drawable/category_background"
         android:importantForAccessibility="no" />
 
@@ -17,6 +19,5 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_marginTop="4dp"
-        android:gravity="center_horizontal"
-        android:text="worck" />
+        android:gravity="center_horizontal"/>
 </LinearLayout>

@@ -39,58 +39,56 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        nAdapter = NotesAdapter(api = this)
-        cAdapter = CategoryAdapter()
-
-        /**
-         * Test cAdapter
-         */
-        val fakeData = listOf(
-            CategoryData(title = "one"),
-            CategoryData(title = "two"),
-            CategoryData(title = "th"),
-            CategoryData(title = "fo"),
-            CategoryData(title = "fi"),
-            CategoryData(title = "se"),
-            CategoryData(title = "sev"),
-            CategoryData(title = "eg"),
-            CategoryData(title = "ni"),
-            CategoryData(title = "ten")
-        )
-
-
-        cAdapter.submit(fakeData)
-
-        // Ui Handeler TODO Search Handeler!
-        loadItems()
-        btnAddNote()
-        refresh()
-
+        initUI()
     }
 
-    private val refresh: () -> Unit = {
+
+    private fun initUI(){
+        btnAddNote()
+        fillAdapters()
+        loadItems()
+        refresh()
+    }
+
+    private fun fillAdapters() {
+        nAdapter = NotesAdapter(api = this)
+        cAdapter = CategoryAdapter()
+    }
+
+    private fun loadItems() {
+        cAdapter.submit(
+            listOf(
+                CategoryData(title = "one"),
+                CategoryData(title = "two"),
+                CategoryData(title = "th"),
+                CategoryData(title = "fo"),
+                CategoryData(title = "fi"),
+                CategoryData(title = "se"),
+                CategoryData(title = "sev"),
+                CategoryData(title = "eg"),
+                CategoryData(title = "ni"),
+                CategoryData(title = "ten")
+            )
+        )
+        binding.apply {
+            rcCategory.setAdapter(true) { cAdapter }
+            rcNote.setAdapter { nAdapter }
+        }
+    }
+
+    private fun refresh() {
         viewM.getAllNotes().observe(requireActivity()) {
             if (it.isNotEmpty())
-                nAdapter.refreshRecycler(it)
+                nAdapter.submit(it)
             else
                 viewM.fillFirst()
         }
     }
 
+
     private fun btnAddNote() {
         binding.action.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addNoteFragment)
-        }
-    }
-
-
-    private fun loadItems() {
-        binding.apply {
-            //Category
-            rcCategory.setAdapter(true) { cAdapter }
-            // Note
-            rcNote.setAdapter { nAdapter }
         }
     }
 

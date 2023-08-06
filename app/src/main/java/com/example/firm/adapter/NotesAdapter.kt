@@ -57,7 +57,7 @@ class NotesAdapter(
     override fun getItemCount(): Int = listData.size
 
     @SuppressLint("NotifyDataSetChanged")
-    fun refreshRecycler(new: List<SingleNoteData>) {
+    fun submit(new: List<SingleNoteData>) {
         if (new != listData) {
             listData.clear()
             listData.addAll(ArrayList(new))
