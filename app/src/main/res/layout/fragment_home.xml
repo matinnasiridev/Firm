@@ -34,19 +34,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="28dp"
+                android:layout_weight="20"
                 android:background="@drawable/category_background"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:paddingStart="8dp"
-                android:paddingEnd="8dp">
+                android:paddingEnd="8dp"
+                tools:ignore="InefficientWeight">
 
                 <EditText
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
                     android:background="@null"
+                    android:id="@+id/edtsearch"
                     android:hint="Search Your Note"
                     android:inputType="text"
-                    tools:ignore="Autofill,HardcodedText" />
+                    android:maxLines="1"
+                    tools:ignore="Autofill,HardcodedText,InefficientWeight,NestedWeights" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_search"
+                    android:id="@+id/btnsearch"
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
 
             <TextView

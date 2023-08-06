@@ -2,10 +2,12 @@ package com.example.firm.ui
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.example.firm.R
 import com.example.firm.adapter.CategoryAdapter
@@ -14,6 +16,7 @@ import com.example.firm.util.RecyclerCallBack
 import com.example.firm.databinding.FragmentHomeBinding
 import com.example.firm.model.CategoryData
 import com.example.firm.model.SingleNoteData
+import com.example.firm.util.Constants.TAG
 import com.example.firm.util.setAdapter
 import com.example.firm.viewModel.MainViewModel
 import org.koin.android.ext.android.inject
@@ -43,11 +46,26 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
     }
 
 
-    private fun initUI(){
+    private fun initUI() {
         btnAddNote()
         fillAdapters()
+        search()
         loadItems()
         refresh()
+    }
+
+    private fun search() {
+        binding.apply {
+            btnsearch.setOnClickListener {
+                edtsearch.setText("")
+
+            }
+            // Or!
+            edtsearch.addTextChangedListener {
+                Log.d(TAG, it.toString())
+
+            }
+        }
     }
 
     private fun fillAdapters() {
