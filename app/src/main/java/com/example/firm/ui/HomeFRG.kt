@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.example.firm.R
@@ -18,6 +19,7 @@ import com.example.firm.model.CategoryData
 import com.example.firm.model.SingleNoteData
 import com.example.firm.util.Constants.TAG
 import com.example.firm.util.setAdapter
+import com.example.firm.util.showToast
 import com.example.firm.viewModel.MainViewModel
 import org.koin.android.ext.android.inject
 
@@ -57,14 +59,20 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
     private fun search() {
         binding.apply {
             btnsearch.setOnClickListener {
-                edtsearch.setText("")
+                requireActivity().showToast("search btn")
 
             }
             // Or!
             edtsearch.addTextChangedListener {
                 Log.d(TAG, it.toString())
 
+                // Clean Button
+                if (it?.isNotEmpty() == true)
+                    btnclean.isVisible = true
+                btnclean.setOnClickListener { edtsearch.setText("") }
+                // -->
             }
+
         }
     }
 
