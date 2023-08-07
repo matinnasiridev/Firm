@@ -30,4 +30,9 @@ interface NoteDao {
 
     @Query("SELECT * FROM $TableNote WHERE title LIKE '%' || :name || '%'")
     fun getListByName(name: String): LiveData<List<SingleNoteData>>
+
+
+    @Query("SELECT * FROM $TableNote WHERE id LIKE '%' || :id || '%'")
+    fun getListByID(id: Long): SingleNoteData
+
 }

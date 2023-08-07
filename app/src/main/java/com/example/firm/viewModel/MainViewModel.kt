@@ -2,7 +2,6 @@ package com.example.firm.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.firm.model.CategoryData
 import com.example.firm.model.SingleNoteData
 import com.example.firm.repository.Repository
 
@@ -18,9 +17,11 @@ class MainViewModel(
 
     fun deleteItem(note: SingleNoteData) = rps.deleteItem(note)
 
-    // Category
-    fun filterCategory(c: String): LiveData<List<SingleNoteData>> = rps.getListByName(c)
-    // -->
+    fun filterName(c: String): LiveData<List<SingleNoteData>> = rps.getListByName(c)
+
+
+    fun filterID(i: Long): SingleNoteData = rps.getListByID(i)
+
 
     // Test Tools
     fun fillFirst() = insertNote(rps.create())

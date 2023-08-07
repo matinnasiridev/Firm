@@ -57,6 +57,12 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/addNoteFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_addNoteFragment_to_showNoteFragment"
+            app:destination="@id/showNoteFragment" />
+        <argument
+            android:name="noteID"
+            app:argType="long" />
     </fragment>
     <fragment
         android:id="@+id/showNoteFragment"
@@ -64,8 +70,11 @@
         android:label="fragment_show_note"
         tools:layout="@layout/fragment_show_note" >
         <argument
-            android:name="note"
-            app:argType="com.example.firm.model.SingleNoteData" />
+            android:name="noteID"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_showNoteFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
     </fragment>
     <dialog
         android:id="@+id/dialogDeleteItem"

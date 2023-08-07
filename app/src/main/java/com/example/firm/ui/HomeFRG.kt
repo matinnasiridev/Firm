@@ -56,7 +56,7 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
     private fun search() {
         binding.apply {
             edtsearch.addTextChangedListener {
-                viewM.filterCategory(it.toString()).observe(requireActivity()) { target ->
+                viewM.filterName(it.toString()).observe(requireActivity()) { target ->
                     if (target.isNotEmpty())
                         nAdapter.submit(target)
                 }
@@ -113,10 +113,10 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
         }
     }
 
-    override fun onClick(note: SingleNoteData) {
+    override fun onClick(noteID: Long) {
         findNavController().navigate(
             HomeFRGDirections.actionHomeFragmentToShowNoteFragment(
-                note
+                noteID
             )
         )
     }

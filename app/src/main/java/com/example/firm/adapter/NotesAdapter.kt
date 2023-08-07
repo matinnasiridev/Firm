@@ -27,7 +27,7 @@ class NotesAdapter(
 
             // OnClick
             itemView.setOnClickListener {
-                api.onClick(noteData)
+                api.onClick(noteData.id!!)
             }
 
             // OnLongClick

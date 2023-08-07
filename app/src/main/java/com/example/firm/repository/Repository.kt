@@ -13,7 +13,10 @@ class Repository(
     // Local
     fun getList(): LiveData<List<SingleNoteData>> = noteDao.getAllNotes()
 
-    fun getListByName(s: String):LiveData<List<SingleNoteData>> = noteDao.getListByName(s)
+    fun getListByName(s: String): LiveData<List<SingleNoteData>> = noteDao.getListByName(s)
+
+
+    fun getListByID(i: Long): SingleNoteData = noteDao.getListByID(i)
 
     fun insertNote(note: SingleNoteData) = noteDao.insertNote(note)
 
