@@ -2,7 +2,6 @@ package com.example.firm.ui
 
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,9 +16,7 @@ import com.example.firm.util.RecyclerCallBack
 import com.example.firm.databinding.FragmentHomeBinding
 import com.example.firm.model.CategoryData
 import com.example.firm.model.SingleNoteData
-import com.example.firm.util.Constants.TAG
 import com.example.firm.util.setAdapter
-import com.example.firm.util.showToast
 import com.example.firm.viewModel.MainViewModel
 import org.koin.android.ext.android.inject
 
@@ -58,21 +55,16 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
 
     private fun search() {
         binding.apply {
-            btnsearch.setOnClickListener {
-                requireActivity().showToast("search btn")
-
-            }
-            // Or!
             edtsearch.addTextChangedListener {
-                Log.d(TAG, it.toString())
-
+                viewM.filterCategory(it.toString()).observe(requireActivity()) { target ->
+                    if (target.isNotEmpty())
+                        nAdapter.submit(target)
+                }
                 // Clean Button
-                if (it?.isNotEmpty() == true)
-                    btnclean.isVisible = true
+                btnclean.isVisible = it?.isNotEmpty() == true
                 btnclean.setOnClickListener { edtsearch.setText("") }
                 // -->
             }
-
         }
     }
 

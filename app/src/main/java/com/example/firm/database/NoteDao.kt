@@ -7,6 +7,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.firm.model.SingleNoteData
+import com.example.firm.util.Constants.TableNote
 
 @Dao
 interface NoteDao {
@@ -23,7 +24,10 @@ interface NoteDao {
     fun deleteNote(note: SingleNoteData)
 
 
-    @Query("SELECT * FROM note_table")
+    @Query("SELECT * FROM $TableNote")
     fun getAllNotes(): LiveData<List<SingleNoteData>>
 
+
+    @Query("SELECT * FROM $TableNote WHERE title LIKE '%' || :name || '%'")
+    fun getListByName(name: String): LiveData<List<SingleNoteData>>
 }

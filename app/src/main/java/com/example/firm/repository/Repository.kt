@@ -13,6 +13,8 @@ class Repository(
     // Local
     fun getList(): LiveData<List<SingleNoteData>> = noteDao.getAllNotes()
 
+    fun getListByName(s: String):LiveData<List<SingleNoteData>> = noteDao.getListByName(s)
+
     fun insertNote(note: SingleNoteData) = noteDao.insertNote(note)
 
     fun insertNote(listNote: List<SingleNoteData>) = noteDao.insertNotes(listNote)
@@ -20,7 +22,7 @@ class Repository(
     fun deleteItem(note: SingleNoteData) = noteDao.deleteNote(note)
     // --->
 
-    // Api
+    // Category
 
 
     // --->
