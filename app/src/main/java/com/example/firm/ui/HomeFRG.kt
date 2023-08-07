@@ -77,13 +77,6 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
         cAdapter.submit(
             listOf(
                 CategoryData(title = "one"),
-                CategoryData(title = "two"),
-                CategoryData(title = "th"),
-                CategoryData(title = "fo"),
-                CategoryData(title = "fi"),
-                CategoryData(title = "se"),
-                CategoryData(title = "sev"),
-                CategoryData(title = "eg"),
                 CategoryData(title = "ni"),
                 CategoryData(title = "ten")
             )
