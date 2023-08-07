@@ -1,7 +1,13 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.firm.util
 
 import android.content.Context
+import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firm.databinding.ModuleScreenThempBinding
@@ -40,5 +46,11 @@ fun fillThePage(
     root.image.setImageResource(img)
     root.title.setText(title)
     root.desc.setText(desc)
+}
+
+fun ImageButton.onBack(f: FragmentActivity) {
+    this.setOnClickListener {
+        f.onBackPressed()
+    }
 }
 

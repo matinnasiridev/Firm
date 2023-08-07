@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
     tools:context=".ui.AddNote">
 
     <androidx.core.widget.NestedScrollView
@@ -13,57 +15,90 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputLayout
-
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Title"
-                android:paddingStart="12dp"
-                android:paddingTop="32dp"
-                android:paddingEnd="12dp"
-                android:paddingBottom="12dp">
+                android:layout_height="wrap_content">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                <ImageButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/category_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:importantForAccessibility="no"
+                    android:paddingStart="14dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="12dp"
+                    android:src="@drawable/ic_goback"
+                    app:tint="@color/green" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:text="Jun 12"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="12dp"
-                android:paddingTop="12dp"
-                android:paddingEnd="12dp">
+                android:layout_height="wrap_content">
 
-                <AutoCompleteTextView
-                    android:id="@+id/autoCompleteTextView"
+                <EditText
+                    android:id="@+id/edt_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Chategore" />
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/edt_background"
+                    android:hint="title"
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine"
+                    android:maxLength="35"
+                    android:padding="16dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray_ang"
+                    android:textCursorDrawable="@color/black"
+                    android:textSize="40sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+                    android:id="@+id/tv_numberCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/edt_title" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-
+            <EditText
+                android:id="@+id/edt_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Main"
-                android:paddingStart="12dp"
-                android:paddingTop="12dp"
-                android:paddingEnd="12dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/main"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edt_background"
+                android:hint="type something"
+                android:padding="16dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray_ang"
+                android:textCursorDrawable="@color/black"
+                android:textSize="18sp"
+                tools:ignore="TextFields" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -73,9 +108,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="1dp"
         android:layout_marginBottom="12dp"
         android:importantForAccessibility="no"
-        android:src="@drawable/ic_save" />
+        android:src="@drawable/ic_save"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

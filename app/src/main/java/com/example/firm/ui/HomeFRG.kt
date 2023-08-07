@@ -78,6 +78,16 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
             listOf(
                 CategoryData(title = "one"),
                 CategoryData(title = "ni"),
+                CategoryData(title = "ni"),
+                CategoryData(title = "ni"),
+                CategoryData(title = "ni"),
+                CategoryData(title = "ni"),
+                CategoryData(title = "ni"),
+                CategoryData(title = "ni"),
+                CategoryData(title = "ni"),
+                CategoryData(title = "ni"),
+                CategoryData(title = "ni"),
+                CategoryData(title = "ni"),
                 CategoryData(title = "ten")
             )
         )
