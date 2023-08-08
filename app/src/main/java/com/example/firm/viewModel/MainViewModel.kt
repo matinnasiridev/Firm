@@ -22,9 +22,5 @@ class MainViewModel(
 
     fun filterID(i: Long): SingleNoteData = rps.getListByID(i)
 
-
-    // Test Tools
-    fun fillFirst() = insertNote(rps.create())
-
 }
 

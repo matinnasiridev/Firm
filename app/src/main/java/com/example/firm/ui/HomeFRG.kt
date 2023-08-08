@@ -101,8 +101,6 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
         viewM.getAllNotes().observe(requireActivity()) {
             if (it.isNotEmpty())
                 nAdapter.submit(it)
-            else
-                viewM.fillFirst()
         }
     }
 

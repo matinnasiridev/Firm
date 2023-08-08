@@ -62,7 +62,8 @@
             app:destination="@id/showNoteFragment" />
         <argument
             android:name="noteID"
-            app:argType="long" />
+            app:argType="long"
+            android:defaultValue="-99999L" />
     </fragment>
     <fragment
         android:id="@+id/showNoteFragment"

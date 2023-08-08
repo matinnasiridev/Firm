@@ -16,6 +16,5 @@ data class SingleNoteData(
     val title: String? = "",
     val main: String? = "",
     val createDate: String? = "",
-
-    val lastUpdateDate: String? = ""
+    val lastUpdateDate: String? = "Now Created!"
 ) : Parcelable
