@@ -25,8 +25,8 @@
 
                 <ImageButton
                     android:id="@+id/btn_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
                     android:background="@drawable/category_background"
                     android:clickable="true"
                     android:focusable="true"
@@ -43,7 +43,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end|center_vertical"
-                    android:text="Jun 12"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -59,9 +58,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="24dp"
-                    android:layout_marginEnd="16dp"
                     android:background="@drawable/edt_background"
-                    android:hint="title"
+                    android:layout_marginEnd="16dp"
+                    android:hint="@string/title"
                     android:importantForAutofill="no"
                     android:inputType="textMultiLine"
                     android:maxLength="30"
@@ -92,14 +91,15 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:hint="@string/type_something"
                 android:background="@drawable/edt_background"
-                android:hint="type something"
                 android:padding="16dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray_ang"
                 android:textCursorDrawable="@color/black"
                 android:textSize="18sp"
-                tools:ignore="TextFields" />
+                tools:ignore="TextFields"
+                android:importantForAutofill="no" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -108,6 +108,7 @@
         android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/green"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="12dp"

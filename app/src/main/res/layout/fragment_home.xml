@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="24dp"
     android:background="@color/bg_center"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
-    android:layout_marginTop="24dp"
     tools:context=".ui.HomeFRG">
 
     <androidx.core.widget.NestedScrollView
@@ -75,10 +75,9 @@
                     android:layout_marginEnd="4dp"
                     android:layout_weight="1"
                     android:background="@null"
-                    android:hint="Search Your Note"
+                    android:hint="@string/search_your_note"
                     android:inputType="text"
-                    android:maxLines="1"
-                    tools:ignore="Autofill,HardcodedText,InefficientWeight,NestedWeights" />
+                    android:maxLines="1" />
 
                 <ImageView
                     android:id="@+id/btnclean"
@@ -95,17 +94,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
-                android:text="Category"
+                android:text="@string/category"
                 android:textColor="@color/green"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:id="@+id/chat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <HorizontalScrollView
                     android:layout_width="wrap_content"
@@ -149,7 +150,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Notes"
+                android:text="@string/notes"
                 android:textColor="@color/green"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -189,6 +190,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/green"
         android:importantForAccessibility="no"
         android:src="@drawable/ic_add" />
 

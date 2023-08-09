@@ -8,11 +8,14 @@
     <string name="title_welcome">Welcome to Firm.</string>
     <string name="title_one">Firm is Safe</string>
     <string name="title_two">Firm is unlimited</string>
-    <string name="title_third">Firm is customizable</string>
 
     <string name="desc_welcome">Firm Decisions, Successful Outcomes</string>
     <string name="desc_one">According to an encryption operation, we protect all your writings.</string>
     <string name="desc_two">Keep writing without worry</string>
-    <string name="desc_third">Customize infinitely</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">title</string>
+    <string name="type_something">type something</string>
+    <string name="search_your_note">Search Your Note</string>
+    <string name="category">Category</string>
+    <string name="notes">Notes</string>
 </resources>

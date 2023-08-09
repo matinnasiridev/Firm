@@ -8,9 +8,18 @@
     <color name="red">#FF0000</color>
     <color name="green">#4CAF50</color>
 
-
     <color name="bg_center">#F4F4FF</color>
     <color name="blue">#4AC1C1</color>
     <color name="dark_pink">#EFA08F</color>
     <color name="gray">#F6EAE9</color>
+
+    <color name="dark_prime">#388E3C</color>
+    <color name="light_prime">#C8E6C9</color>
+    <color name="prime">#4CAF50</color>
+    <color name="text">#FFFFFF</color>
+    <color name="acc_color">#9E9E9E</color>
+    <color name="prime_text">#212121</color>
+    <color name="seco_color">#757575</color>
+    <color name="divaider">#BDBDBD</color>
+
 </resources>
