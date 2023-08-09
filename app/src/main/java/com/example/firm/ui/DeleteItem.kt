@@ -34,12 +34,12 @@ class DeleteItem : BottomSheetDialogFragment() {
         val str: (s: String) -> String = { "'$it'" }
         binding.apply {
 
-            noteTitle.text = str(args.note.title!!)
+            noteTitle.text = str(viewM.filterID(args.noteID).title!!)
 
             dismis.setOnClickListener { dismiss() }
 
             action.setOnClickListener {
-                viewM.deleteItem(args.note)
+                viewM.deleteItemByID(args.noteID)
                 dismiss()
             }
         }

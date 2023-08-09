@@ -15,7 +15,7 @@ class MainViewModel(
 
     fun insertNote(listNote: List<SingleNoteData>) = rps.insertNote(listNote)
 
-    fun deleteItem(note: SingleNoteData) = rps.deleteItem(note)
+    fun deleteItemByID(noteID: Long) = rps.deleteItem(noteID)
 
     fun filterName(c: String): LiveData<List<SingleNoteData>> = rps.getListByName(c)
 

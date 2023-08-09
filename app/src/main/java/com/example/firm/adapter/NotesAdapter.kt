@@ -10,7 +10,7 @@ import com.example.firm.util.RecyclerCallBack
 
 
 class NotesAdapter(
-    private val api: RecyclerCallBack<SingleNoteData>
+    private val api: RecyclerCallBack
 
 ) : RecyclerView.Adapter<NotesAdapter.MainViewHolder>() {
     private lateinit var binding: ItemNoteBinding
@@ -20,9 +20,9 @@ class NotesAdapter(
         fun bind(noteData: SingleNoteData) {
 
             binding.apply {
-                txtTitle.text = noteData.title
-                txtShortDesc.text = noteData.main
-                txtTime.text = noteData.createDate
+                tvTitle.text = noteData.title
+                tvDetail.text = noteData.main
+                tvDate.text = noteData.lastUpdateDate
             }
 
             // OnClick
@@ -32,7 +32,7 @@ class NotesAdapter(
 
             // OnLongClick
             itemView.setOnLongClickListener {
-                api.onLongClick(noteData)
+                api.onLongClick(noteData.id!!)
                 true
             }
         }

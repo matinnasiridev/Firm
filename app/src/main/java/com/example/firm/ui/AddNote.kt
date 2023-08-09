@@ -1,7 +1,6 @@
 package com.example.firm.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,6 @@ import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.navArgs
 import com.example.firm.databinding.FragmentAddNoteBinding
 import com.example.firm.model.SingleNoteData
-import com.example.firm.util.Constants.TAG
 import com.example.firm.util.onBack
 import com.example.firm.util.showToast
 import com.example.firm.viewModel.MainViewModel
@@ -35,6 +33,7 @@ class AddNote : Fragment() {
         return binding.root
     }
 
+    @Suppress("DEPRECATION")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -67,14 +66,14 @@ class AddNote : Fragment() {
             tvDate.text = month().format(date).toString()
 
             edtTitle.addTextChangedListener {
-                tvNumberCount.text = (35 - edtTitle.length()).toString()
+                tvNumberCount.text = (30 - edtTitle.length()).toString()
             }
 
             save.setOnClickListener {
                 if (edtTitle.text.isNotEmpty() && edtDetail.text.isNotEmpty())
                     onSavePress()
                 else
-                    requireActivity().showToast("PorKon Bi sahabo!")
+                    requireActivity().showToast("PorKon BiSahabo!")
             }
         }
     }
@@ -87,6 +86,7 @@ class AddNote : Fragment() {
                         title = edtTitle.text.toString(),
                         main = edtDetail.text.toString(),
                         createDate = year().format(date).toString(),
+                        lastUpdateDate = month().format(date).toString()
                     )
                 )
             } else {

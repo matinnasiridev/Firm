@@ -1,6 +1,6 @@
 package com.example.firm.util
 
-interface RecyclerCallBack<T> {
+interface RecyclerCallBack {
     fun onClick(noteID: Long)
-    fun onLongClick(note: T)
+    fun onLongClick(noteID: Long)
 }

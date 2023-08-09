@@ -16,7 +16,6 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.Firm"
         tools:targetApi="31">
-
         <activity
             android:name=".ui.MainView"
             android:exported="true">

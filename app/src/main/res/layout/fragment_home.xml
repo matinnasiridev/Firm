@@ -7,6 +7,7 @@
     android:background="@color/bg_center"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
+    android:layout_marginTop="24dp"
     tools:context=".ui.HomeFRG">
 
     <androidx.core.widget.NestedScrollView
@@ -164,15 +165,19 @@
                     android:layout_marginTop="10dp"
                     android:layoutAnimation="@anim/recycler"
                     android:paddingBottom="32dp"
+                    android:visibility="gone"
+                    tools:itemCount="1"
                     tools:listitem="@layout/item_note" />
 
                 <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:id="@+id/img_recycler"
+                    android:layout_width="wrap_content"
+                    android:layout_height="250dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="32dp"
                     android:importantForAccessibility="no"
-                    android:src="@drawable/ic_edit" />
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_home" />
             </FrameLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

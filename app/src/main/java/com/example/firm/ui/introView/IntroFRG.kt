@@ -10,7 +10,6 @@ import com.example.firm.R
 import com.example.firm.adapter.ViewPagerAdapter
 import com.example.firm.ui.introView.screens.FirsScreen
 import com.example.firm.ui.introView.screens.SecondScreen
-import com.example.firm.ui.introView.screens.ThirdScreen
 import com.example.firm.ui.introView.screens.WelcomeScreen
 
 class IntroFRG : Fragment() {
@@ -24,8 +23,7 @@ class IntroFRG : Fragment() {
             arrayListOf(
                 WelcomeScreen(),
                 FirsScreen(),
-                SecondScreen(),
-                ThirdScreen()
+                SecondScreen()
             ),
             requireActivity().supportFragmentManager,
             lifecycle

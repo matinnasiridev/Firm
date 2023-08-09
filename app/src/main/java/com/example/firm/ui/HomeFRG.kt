@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
@@ -21,7 +22,7 @@ import com.example.firm.viewModel.MainViewModel
 import org.koin.android.ext.android.inject
 
 
-class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
+class HomeFRG : Fragment(), RecyclerCallBack {
     private lateinit var binding: FragmentHomeBinding
     private val viewM: MainViewModel by inject()
     private lateinit var nAdapter: NotesAdapter
@@ -41,6 +42,7 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.green)
         initUI()
     }
 
@@ -74,23 +76,6 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
     }
 
     private fun loadItems() {
-        cAdapter.submit(
-            listOf(
-                CategoryData(title = "one"),
-                CategoryData(title = "ni"),
-                CategoryData(title = "ni"),
-                CategoryData(title = "ni"),
-                CategoryData(title = "ni"),
-                CategoryData(title = "ni"),
-                CategoryData(title = "ni"),
-                CategoryData(title = "ni"),
-                CategoryData(title = "ni"),
-                CategoryData(title = "ni"),
-                CategoryData(title = "ni"),
-                CategoryData(title = "ni"),
-                CategoryData(title = "ten")
-            )
-        )
         binding.apply {
             rcCategory.setAdapter(true) { cAdapter }
             rcNote.setAdapter { nAdapter }
@@ -99,8 +84,13 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
 
     private fun refresh() {
         viewM.getAllNotes().observe(requireActivity()) {
-            if (it.isNotEmpty())
+            if (it.isNotEmpty()) {
                 nAdapter.submit(it)
+                binding.apply {
+                    rcNote.isVisible = true
+                    imgRecycler.isVisible = false
+                }
+            }
         }
     }
 
@@ -119,10 +109,10 @@ class HomeFRG : Fragment(), RecyclerCallBack<SingleNoteData> {
         )
     }
 
-    override fun onLongClick(note: SingleNoteData) {
+    override fun onLongClick(noteID: Long) {
         findNavController().navigate(
             HomeFRGDirections.actionHomeFragmentToDialogDeleteItem(
-                note
+                noteID
             )
         )
     }

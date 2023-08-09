@@ -20,8 +20,8 @@ interface NoteDao {
     fun insertNotes(listNotes: List<SingleNoteData>)
 
 
-    @Delete
-    fun deleteNote(note: SingleNoteData)
+    @Query("DELETE FROM $TableNote WHERE id LIKE :id")
+    fun deleteNote(id: Long)
 
 
     @Query("SELECT * FROM $TableNote")

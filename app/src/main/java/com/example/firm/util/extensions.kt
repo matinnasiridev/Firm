@@ -3,14 +3,12 @@
 package com.example.firm.util
 
 import android.content.Context
-import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.firm.databinding.ModuleScreenThempBinding
+import com.example.firm.databinding.ModuleSctmpBinding
 
 fun Context.showToast(message: String, isShortTime: Boolean = true) {
     Toast.makeText(
@@ -38,7 +36,7 @@ fun <T : RecyclerView.ViewHolder> RecyclerView.setAdapter(
 
 
 fun fillThePage(
-    root: ModuleScreenThempBinding,
+    root: ModuleSctmpBinding,
     img: Int,
     title: Int,
     desc: Int

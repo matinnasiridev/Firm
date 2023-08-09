@@ -22,6 +22,6 @@ class Repository(
 
     fun insertNote(listNote: List<SingleNoteData>) = noteDao.insertNotes(listNote)
 
-    fun deleteItem(note: SingleNoteData) = noteDao.deleteNote(note)
+    fun deleteItem(id: Long) = noteDao.deleteNote(id)
     // --->
 }

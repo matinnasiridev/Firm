@@ -10,7 +10,7 @@ object Constants {
     // -->
 
     // Splash
-    const val SplashTime = 50L
+    const val SplashTime = 500L
     const val SplashShared = "onBoarding"
     const val SplashValue = "Finished"
     // -->

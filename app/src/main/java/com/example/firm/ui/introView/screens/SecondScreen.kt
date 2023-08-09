@@ -31,6 +31,7 @@ class SecondScreen : Fragment() {
         binding.content.skipBtn.setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_homeFragment)
         }
+
         fillThePage(
             binding.content,
             R.drawable.unlimited,
